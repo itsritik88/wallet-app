@@ -10,7 +10,7 @@ export const Users = () => {
 
     useEffect(() => {
         if (!filter.trim()) {
-            setUsers([]);  // ✅ Clear users when input is empty
+            setUsers([]);
             setFetched(false);
             return;
         }
@@ -23,7 +23,7 @@ export const Users = () => {
                     return;
                 }
 
-                const response = await axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`, {
+                const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/bulk?filter=${filter}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -32,9 +32,9 @@ export const Users = () => {
             } catch (error) {
                 console.error("Error fetching users:", error.response?.data || error.message);
             }
-        }, 1000);  // ✅ Debounce for 1 second (1000ms)
+        }, 1000);
 
-        return () => clearTimeout(timeout);  // ✅ Cleanup previous timeout
+        return () => clearTimeout(timeout);
     }, [filter]);
 
     return <>

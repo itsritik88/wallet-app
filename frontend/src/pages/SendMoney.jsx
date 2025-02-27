@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import axios from "axios";
 import { useState, useRef } from 'react';
-import { Balance } from '../components/Balance'; // Import Balance component
+import { Balance } from '../components/Balance';
 
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();
@@ -10,21 +10,21 @@ export const SendMoney = () => {
     const [amount, setAmount] = useState(0);
     const [message, setMessage] = useState("");
 
-    const updateBalanceRef = useRef(null); // ✅ Create ref to hold balance update function
+    const updateBalanceRef = useRef(null);
 
     const handleTransfer = async () => {
         try {
-            await axios.post("http://localhost:3000/api/v1/account/transfer", 
+            await axios.post("https://wallet-app-21hl.onrender.com/api/v1/account/transfer", 
                 { to: id, amount }, 
                 { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
             );
 
-            setMessage("✅ Transfer Successful!");
+            setMessage("Transfer Successful!");
             if (updateBalanceRef.current) {
-                updateBalanceRef.current(); // ✅ Call fetchBalance after transfer
+                updateBalanceRef.current();
             }
         } catch (error) {
-            setMessage("❌ Transfer Failed! Try again.");
+            setMessage(" Transfer Failed! Try again.");
         }
     };
 
@@ -32,7 +32,7 @@ export const SendMoney = () => {
         <div className="flex justify-center h-screen bg-gray-100">
             <div className="h-full flex flex-col justify-center">
                 <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
-                    <Balance updateBalanceRef={updateBalanceRef} /> {/* ✅ Pass reference */}
+                    <Balance updateBalanceRef={updateBalanceRef} /> {/*  Pass reference */}
                     
                     <div className="flex flex-col space-y-1.5 p-6">
                         <h2 className="text-3xl font-bold text-center">Send Money</h2>
