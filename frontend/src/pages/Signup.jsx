@@ -35,7 +35,7 @@ export const Signup = () => {
         <div className="pt-4">
           <Button onClick={async () => {
            try{
-            const response = await axios.post('${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup', {
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`, {
               username,
               firstName,
               lastName,

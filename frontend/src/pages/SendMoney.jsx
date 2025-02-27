@@ -14,7 +14,7 @@ export const SendMoney = () => {
 
     const handleTransfer = async () => {
         try {
-            await axios.post("https://wallet-app-21hl.onrender.com/api/v1/account/transfer", 
+            await axios.post(`${import.meta.env.VITE_BACKEND_URL}api/v1/account/transfer`, 
                 { to: id, amount }, 
                 { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
             );
