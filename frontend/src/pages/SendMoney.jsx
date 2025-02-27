@@ -14,7 +14,7 @@ export const SendMoney = () => {
 
     const handleTransfer = async () => {
         try {
-            await axios.post(`${import.meta.env.VITE_BACKEND_URL}api/v1/account/transfer`, 
+            await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/account/transfer`, 
                 { to: id, amount }, 
                 { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
             );
@@ -39,7 +39,7 @@ export const SendMoney = () => {
                     </div>
                     <div className="p-6">
                         <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center">
                                 <span className="text-2xl text-white">{name[0].toUpperCase()}</span>
                             </div>
                             <h3 className="text-2xl font-semibold">{name}</h3>
