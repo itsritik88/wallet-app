@@ -1,5 +1,9 @@
 # Wallet App README
 
+## Live Link
+```bash
+https://wallet-app-r7rg.vercel.app/
+```
 ## Overview
 
 This document provides a comprehensive overview of the Wallet App, including its features, technology stack, installation guide, and project structure. This app is designed to manage user balances, track transactions, and handle JWT authentication.
@@ -62,12 +66,6 @@ wallet-app/
 │   └───package.json
 │
 └───README.md         # Project documentation (this file)
-
-
-## Live Link
-```bash
-https://wallet-app-r7rg.vercel.app/
-```
 
 ## Installation Guide
 
